@@ -18,7 +18,7 @@ class User(db.Model,UserMixin):
     posts = db.relationship('Post', backref='author', lazy=True)
 
     def __repr__(self):
-        return f"User('{self.username}', '{self.email}', '{self.image_file}')"
+        return f((self.username), (self.email), (self.image_file))
 
 
 class Post(db.Model):
@@ -30,7 +30,7 @@ class Post(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
     def __repr__(self):
-        return f"Post('{self.title}', '{self.date_posted}')"
+        return f((self.title), (self.date_posted))
     
 class Comment(db.Model):
     __tablename__ = 'comments'
@@ -40,15 +40,15 @@ class Comment(db.Model):
     content = db.Column(db.Text, nullable=False)
     
     def __repr__(self):
-        return f"User('{self.date_posted}')"
+        return f((self.date_posted))
     
-class Vote(db.Model):
-    __tablename__ = 'votes'
-    id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-    upvote = db.Column('upvote',db.Integer,default=0)
-	downvote = db.Column('downvote',db.Integer,default=0)
+# class Vote(db.Model):
+#     __tablename__ = 'votes'
+#     id = db.Column(db.Integer, primary_key=True)
+#     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+#     upvote = db.Column('upvote',db.Integer,default=0)
+# 	downvote = db.Column('downvote',db.Integer,default=0)
 
-    def __repr__(self):
-        return f"User('{self.votes}')"
+#     def __repr__(self):
+#         return f((self.votes))
     
