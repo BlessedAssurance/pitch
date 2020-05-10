@@ -45,11 +45,11 @@
 
 4. Running the application
 
-- python3.6 manage.py server
+- python3.6 run.py server
 
 5. Testing the application
 
-- python3.6 manage.py test
+- python3.6 run.py test
 
 Open the application on your browser 127.0.0.1:5000.
 

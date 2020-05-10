@@ -1,6 +1,7 @@
 from datetime import datetime
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 from app import db, login_manager,app
+# from app.models import downvotes, upvotes
 from flask_login import UserMixin
 
 
@@ -43,3 +44,13 @@ class Post(db.Model):
 
     def _repr_(self):
         return f"Post('{self.title}', '{self.date_posted}')"
+
+# class Vote(db.Model):
+    # __tablename__ = 'votes'
+    # id = db.Column(db.Integer, primary_key=True)
+    # user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    # upvote = db.Column('upvote',db.Integer,default=0)
+    # downvote = db.Column('downvote',db.Integer,default=0)
+
+    def __repr__(self):
+        return f"User('{self.votes}')"
